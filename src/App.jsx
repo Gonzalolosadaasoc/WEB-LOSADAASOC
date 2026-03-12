@@ -261,11 +261,13 @@ export default function App() {
         </section>
 
         {/* 3. SECCIÓN QUIÉNES SOMOS (DIAPOSITIVA) */}
-        <section id="seccion-quienes-somos" className="h-[calc(100vh-5rem)] w-full bg-stone-100 border-t border-stone-200 scroll-mt-20 flex flex-col items-center justify-center px-4 md:px-8">
-         {/* El contenedor ocupa el 100% y tiene márgenes laterales iguales a los proyectos */}
+        <section 
+          id="seccion-quienes-somos" 
+          className="min-h-screen w-full bg-stone-100 border-t border-stone-200 scroll-mt-20 flex flex-col items-center justify-center py-20 px-4 md:px-8"
+        >
           <div className="w-full px-4 md:px-8">
-            {/* Grilla estricta de 4 columnas en monitores grandes (lg:grid-cols-4) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {/* Agregamos gap-16 para que en el celu respiren mejor las fotos */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-8">
               {equipo.map((miembro) => (
                 <div key={miembro.id} className="flex flex-col items-center text-center">
                   <div className="w-full aspect-square mb-4 overflow-hidden bg-white shadow-md relative border-b-4" style={{ borderColor: brandBrown }}>
