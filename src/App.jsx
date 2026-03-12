@@ -180,8 +180,7 @@ export default function App() {
               className={`font-semibold tracking-widest uppercase text-[9px] md:text-sm transition-colors ${seccionActiva === 'quienes-somos' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} 
               style={{ color: seccionActiva === 'quienes-somos' ? brandBrown : '', borderColor: brandBrown }}
             >
-              <span className="hidden md:inline">¿Quiénes somos?</span>
-              <span className="md:hidden">Estudio</span>
+              ESTUDIO
             </button>
             
             <button 
