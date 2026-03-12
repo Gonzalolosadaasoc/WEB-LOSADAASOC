@@ -30,7 +30,7 @@ export default function App() {
       id: 1, 
       nombre: "Arq. Carlos Santiago Losada", 
       rol: "Socio Fundador", 
-      descripcion: "Arquitecto recibido de la UNMdP año xxxx.\nMatricula CAPBA N°23987", 
+      descripcion: "Arquitecto recibido de la UNMdP año 2004.\nMatricula CAPBA N°23987", 
       foto: "foto_socio_1.jpg" 
     },
     { 
