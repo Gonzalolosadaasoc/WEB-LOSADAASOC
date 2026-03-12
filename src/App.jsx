@@ -158,14 +158,37 @@ export default function App() {
           </div>
 
           {/* CENTRO: MENÚ (Eje central fijo para evitar saltos) */}
-          <div className="flex-grow flex items-center justify-center space-x-3 md:space-x-10">
-            <button onClick={() => scrollToSeccion('inicio')} className={`hidden sm:block font-semibold tracking-widest uppercase text-[10px] md:text-sm transition-colors ${seccionActiva === 'inicio' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} style={{ color: seccionActiva === 'inicio' ? brandBrown : '', borderColor: brandBrown }}>Inicio</button>
-            <button onClick={() => scrollToSeccion('proyectos')} className={`font-semibold tracking-widest uppercase text-[10px] md:text-sm transition-colors ${seccionActiva === 'proyectos' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} style={{ color: seccionActiva === 'proyectos' ? brandBrown : '', borderColor: brandBrown }}>Proyectos</button>
-            <button onClick={() => scrollToSeccion('quienes-somos')} className={`font-semibold tracking-widest uppercase text-[10px] md:text-sm transition-colors ${seccionActiva === 'quienes-somos' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} style={{ color: seccionActiva === 'quienes-somos' ? brandBrown : '', borderColor: brandBrown }}>
+          <div className="flex-grow flex items-center justify-center space-x-2 md:space-x-10">
+            <button 
+              onClick={() => scrollToSeccion('inicio')} 
+              className={`hidden sm:block font-semibold tracking-widest uppercase text-[9px] md:text-sm transition-colors ${seccionActiva === 'inicio' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} 
+              style={{ color: seccionActiva === 'inicio' ? brandBrown : '', borderColor: brandBrown }}
+            >
+              Inicio
+            </button>
+            
+            <button 
+              onClick={() => scrollToSeccion('proyectos')} 
+              className={`font-semibold tracking-widest uppercase text-[9px] md:text-sm transition-colors ${seccionActiva === 'proyectos' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} 
+              style={{ color: seccionActiva === 'proyectos' ? brandBrown : '', borderColor: brandBrown }}
+            >
+              Proyectos
+            </button>
+            
+            <button 
+              onClick={() => scrollToSeccion('quienes-somos')} 
+              className={`font-semibold tracking-widest uppercase text-[9px] md:text-sm transition-colors ${seccionActiva === 'quienes-somos' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} 
+              style={{ color: seccionActiva === 'quienes-somos' ? brandBrown : '', borderColor: brandBrown }}
+            >
               <span className="hidden md:inline">¿Quiénes somos?</span>
               <span className="md:hidden">Estudio</span>
             </button>
-            <button onClick={() => scrollToSeccion('contacto')} className={`font-semibold tracking-widest uppercase text-[10px] md:text-sm transition-colors ${seccionActiva === 'contacto' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} style={{ color: seccionActiva === 'contacto' ? brandBrown : '', borderColor: brandBrown }}>
+            
+            <button 
+              onClick={() => scrollToSeccion('contacto')} 
+              className={`font-semibold tracking-widest uppercase text-[9px] md:text-sm transition-colors ${seccionActiva === 'contacto' ? 'border-b-2 pb-1' : 'text-stone-500 hover:text-stone-800'}`} 
+              style={{ color: seccionActiva === 'contacto' ? brandBrown : '', borderColor: brandBrown }}
+            >
               <span className="hidden md:inline">Contáctanos</span>
               <span className="md:hidden">Contacto</span>
             </button>
