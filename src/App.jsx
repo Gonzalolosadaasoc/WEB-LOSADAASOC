@@ -282,22 +282,40 @@ export default function App() {
           </div>
         </section>
 
-        {/* 3. SECCIÓN QUIÉNES SOMOS (DIAPOSITIVA) */}
+        {/* 3. SECCIÓN QUIÉNES SOMOS (ESUDIO) */}
         <section 
           id="seccion-quienes-somos" 
-          className="min-h-screen w-full bg-stone-100 border-t border-stone-200 scroll-mt-20 flex flex-col items-center justify-center py-20 px-4 md:px-8"
+          className="min-h-[calc(100vh-5rem)] lg:h-[calc(100vh-5rem)] w-full bg-stone-100 border-t border-stone-200 scroll-mt-20 flex flex-col justify-start pt-6 lg:pt-8 pb-4 px-4 md:px-8"
         >
-          <div className="w-full px-4 md:px-8">
-            {/* Agregamos gap-16 para que en el celu respiren mejor las fotos */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-8">
+          <div className="w-full max-w-[90rem] mx-auto flex flex-col h-full">
+            
+            {/* --- INICIO DEL TEXTO DE PRESENTACIÓN --- */}
+            <div className="max-w-6xl mx-auto mb-6 lg:mb-8 px-4">
+              <p className="text-sm md:text-base lg:text-[15px] xl:text-base font-light text-stone-600 leading-relaxed text-center">
+                El estudio ofrece, desde el año 2008, básicamente cuatro servicios: Proyecto, dirección, dirección por Contratos separados y Dirección Ejecutiva. De este modo le otorgamos al cliente un espectro de posibilidades según sus necesidades. Este sistema de trabajo inter-disciplinario nos permite abarcar diferentes escalas de proyectos, desde viviendas unifamiliares hasta desarrollos inmobiliarios.
+              </p>
+              <p className="text-sm md:text-base lg:text-[15px] xl:text-base font-light text-stone-600 leading-relaxed text-center mt-3">
+                Concebimos la arquitectura como el equilibrio perfecto entre arte y ciencia al servicio de las personas. Más allá de la sensibilidad estética, nuestro trabajo se basa en analizar múltiples variables para crear obras únicas e irrepetibles. Diseñamos arquitectura con sentido de pertenencia: espacios eficientes, que se adaptan a tus necesidades y dialogan de forma consciente con el entorno que los rodea.
+              </p>
+            </div>
+            {/* --- FIN DEL TEXTO DE PRESENTACIÓN --- */}
+
+            {/* --- EQUIPO (4 columnas iguales, Fotos maximizadas) --- */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 w-full flex-grow items-start">
               {equipo.map((miembro) => (
-                <div key={miembro.id} className="flex flex-col items-center text-center">
-                  <div className="w-full aspect-square mb-4 overflow-hidden bg-white shadow-md relative border-b-4" style={{ borderColor: brandBrown }}>
+                <div key={miembro.id} className="flex flex-col items-center text-center w-full px-2">
+                  
+                  {/* FOTOS MUCHO MÁS GRANDES: Ampliamos el tope máximo a 340px */}
+                  <div className="w-[85%] sm:w-full max-w-[340px] aspect-square mb-4 lg:mb-5 overflow-hidden bg-white shadow-md relative border-b-4" style={{ borderColor: brandBrown }}>
                     <img src={miembro.foto} alt={miembro.nombre} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" />
                   </div>
-                  <h3 className="text-sm md:text-base font-semibold uppercase tracking-wide mb-1" style={{ color: brandBrown }}>{miembro.nombre}</h3>
-                  <p className="text-[10px] md:text-xs font-light italic text-stone-500 uppercase tracking-widest mb-2">{miembro.rol}</p>
-                  <p className="text-xs md:text-sm font-normal text-stone-600 leading-relaxed px-2 whitespace-pre-line">{miembro.descripcion}</p>
+                  
+                  {/* TEXTOS AGRANDADOS (Nombre, Rol y Descripción) */}
+                  <h3 className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wide mb-1" style={{ color: brandBrown }}>{miembro.nombre}</h3>
+                  <p className="text-[10px] md:text-xs lg:text-[13px] font-light italic text-stone-500 uppercase tracking-widest mb-2 lg:mb-3">{miembro.rol}</p>
+                  <p className="text-xs lg:text-sm font-normal text-stone-600 leading-snug px-1 whitespace-pre-line">
+                    {miembro.descripcion}
+                  </p>
                 </div>
               ))}
             </div>
