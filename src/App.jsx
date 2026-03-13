@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Instagram, ArrowLeft } from 'lucide-react';
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 
 /**
  * Losada & Asociados - Sitio Web Profesional (Versión React)
@@ -18,6 +21,25 @@ export default function App() {
   const isotipoEstudio = "ISOTIPO.png";
   const imagenDeFondo = "FORBER 6.jpg";
 
+  const form = useRef();
+
+  const enviarEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      'service_vv9jcew',    // Reemplazá esto con el ID del Paso 1
+      'template_7mjm1vw',   // Reemplazá esto con el ID del Paso 2
+      form.current,
+      'RdY80gIw_NN5UeKOG'     // Reemplazá esto con la llave del Paso 3
+    )
+    .then((result) => {
+        alert("¡Mensaje enviado con éxito! Nos contactaremos a la brevedad.");
+        e.target.reset(); // Esto vacía los campos después de enviar
+    }, (error) => {
+        alert("Hubo un error al enviar el mensaje. Por favor, intentá de nuevo.");
+    });
+  };
+
   const datosContacto = {
     direccion: "Bernardo de Irigoyen 3918, Mar del Plata, Buenos Aires",
     telefono: "+54 9 223 535-3121",
@@ -30,28 +52,28 @@ export default function App() {
       id: 1, 
       nombre: "Arq. Carlos Santiago Losada", 
       rol: "Socio Fundador", 
-      descripcion: "Arquitecto recibido de la UNMdP año 2004.\nMatricula CAPBA N°23987", 
+      descripcion: "Arquitecto recibido de la UNMdP en el 2004.\nMatricula CAPBA N°23987", 
       foto: "foto_socio_1.jpg" 
     },
     { 
       id: 2, 
       nombre: "Arq. Maria Laura Fassinato", 
-      rol: "Socio", 
-      descripcion: "Arquitecta recibida de la UNMdP año 2015.\nMatricula CAPBA N°28859.", 
-      foto: "foto_socio_2.jpg" 
+      rol: "Asociada", 
+      descripcion: "Arquitecta recibida de la UNMdP en el 2015.\nMatricula CAPBA N°28859.\nPosgrado en arquitectura sustentable - UBA.\nEtiquetadora certificada bajo programa nacional de etiquetado de viviendas.\nEspecializacion en arquitectura y habitat sustentable - UNLP.", 
+      foto: "LAURA.JPEG" 
     },
     { 
       id: 3, 
       nombre: "Arq. Geronimo Sobrino", 
-      rol: "Socio", 
-      descripcion: "Arquitecto recibido de la UNMdP año 2021.\nMatricula CAPBA N°34988.", 
+      rol: "Asociado", 
+      descripcion: "Arquitecto recibido de la UNMdP en el 2021.\nMatricula CAPBA N°34988.", 
       foto: "foto_jefe.jpg" 
     },
     { 
       id: 4, 
       nombre: "Arq. Gonzalo Gasparini", 
-      rol: "Socio", 
-      descripcion: "Arquitecto recibido de la UNMdP año 2021.\nMatricula CAPBA N°34760.", 
+      rol: "Asociado", 
+      descripcion: "Arquitecto recibido de la UNMdP en el 2021.\nMatricula CAPBA N°34760.", 
       foto: "Gonzalo.JPEG" 
     }
   ];
@@ -289,25 +311,25 @@ export default function App() {
           <div className="flex-grow flex items-center justify-center px-6 md:px-12 lg:px-24 py-6">
             <div className="w-full max-w-6xl">
               <div className="bg-white p-8 md:p-16 lg:p-20 shadow-sm border border-stone-100 w-full">
-                <form className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10" onSubmit={(e) => e.preventDefault()}>
-                  <div className="flex flex-col text-left">
-                    <label className="text-[10px] uppercase tracking-[0.3em] mb-2 text-stone-400 font-medium">Nombre Completo</label>
-                    <input type="text" className="border-b border-stone-200 py-3 focus:outline-none focus:border-stone-800 transition-colors bg-transparent text-lg font-light" placeholder="Juan Pérez" />
-                  </div>
-                  <div className="flex flex-col text-left">
-                    <label className="text-[10px] uppercase tracking-[0.3em] mb-2 text-stone-400 font-medium">Correo Electrónico</label>
-                    <input type="email" className="border-b border-stone-200 py-3 focus:outline-none focus:border-stone-800 transition-colors bg-transparent text-lg font-light" placeholder="ejemplo@mail.com" />
-                  </div>
-                  <div className="flex flex-col text-left md:col-span-2">
-                    <label className="text-[10px] uppercase tracking-[0.3em] mb-2 text-stone-400 font-medium">Mensaje / Consulta</label>
-                    <textarea rows="5" className="border-b border-stone-200 py-3 focus:outline-none focus:border-stone-800 transition-colors bg-transparent resize-none text-lg font-light" placeholder="Detalles de su proyecto..."></textarea>
-                  </div>
-                  <div className="md:col-span-2 pt-6 flex justify-center">
-                    <button className="w-full md:w-auto px-24 py-5 text-white text-[10px] md:text-xs uppercase tracking-[0.4em] transition-all hover:opacity-90 shadow-xl" style={{ backgroundColor: brandBrown }}>
-                      Enviar Mensaje
-                    </button>
-                  </div>
-                </form>
+              <form ref={form} onSubmit={enviarEmail} className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+                <div className="flex flex-col text-left">
+                  <label className="text-[10px] uppercase tracking-[0.3em] mb-2 text-stone-400 font-medium">Nombre Completo</label>
+                  <input type="text" name="name" required className="border-b border-stone-200 py-3 focus:outline-none focus:border-stone-800 transition-colors bg-transparent text-lg font-light" placeholder="Juan Pérez" />
+                </div>
+                <div className="flex flex-col text-left">
+                  <label className="text-[10px] uppercase tracking-[0.3em] mb-2 text-stone-400 font-medium">Correo Electrónico</label>
+                  <input type="email" name="email" required className="border-b border-stone-200 py-3 focus:outline-none focus:border-stone-800 transition-colors bg-transparent text-lg font-light" placeholder="ejemplo@mail.com" />
+                </div>
+                <div className="flex flex-col text-left md:col-span-2">
+                  <label className="text-[10px] uppercase tracking-[0.3em] mb-2 text-stone-400 font-medium">Mensaje / Consulta</label>
+                  <textarea name="message" rows="5" required className="border-b border-stone-200 py-3 focus:outline-none focus:border-stone-800 transition-colors bg-transparent resize-none text-lg font-light" placeholder="Detalles de su proyecto..."></textarea>
+                </div>
+                <div className="md:col-span-2 pt-6 flex justify-center">
+                  <button type="submit" className="w-full md:w-auto px-24 py-5 text-white text-[10px] md:text-xs uppercase tracking-[0.4em] transition-all hover:opacity-90 shadow-xl" style={{ backgroundColor: brandBrown }}>
+                    Enviar Mensaje
+                  </button>
+                </div>
+              </form>
               </div>
             </div>
           </div>
