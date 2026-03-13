@@ -50,14 +50,14 @@ export default function App() {
   const equipo = [
     { 
       id: 1, 
-      nombre: "Arq. Carlos Santiago Losada", 
+      nombre: "Arq. Santiago Losada", 
       rol: "Socio Fundador", 
       descripcion: "Arquitecto recibido de la UNMdP en el 2004.\nMatricula CAPBA N°23987", 
       foto: "foto_socio_1.jpg" 
     },
     { 
       id: 2, 
-      nombre: "Arq. Maria Laura Fassinato", 
+      nombre: "Arq. Laura Fassinato", 
       rol: "Asociada", 
       descripcion: "Arquitecta recibida de la UNMdP en el 2015.\nMatricula CAPBA N°28859.\nPosgrado en arquitectura sustentable - UBA.\nEtiquetadora certificada bajo programa nacional de etiquetado de viviendas.\nEspecializacion en arquitectura y habitat sustentable - UNLP.", 
       foto: "LAURA.JPEG" 
