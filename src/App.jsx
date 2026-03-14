@@ -91,7 +91,7 @@ export default function App() {
         { id: 7, titulo: "Lote 175", ubicacion: "Arenas del Sur, Mar del Plata", anio: "2021", foto: "Lote 175 1.jpg", galeria: ["Lote 175 1.jpg", "Lote 175 2.jpg", "Lote 175 3.jpg", "Lote 175 4.jpg", "Lote 175 5.jpg", "Lote 175 6.jpg", "Lote 175 7.jpg", "Lote 175 8.jpg", "Lote 175 9.jpg", "Lote 175 15.jpg"] },
         { id: 8, titulo: "Casa Los pinos", ubicacion: "Mar del Plata", anio: "2023", foto: "Casa Los pinos 1.jpg", galeria: ["Casa Los pinos 1.jpg", "Casa Los pinos 2.jpg", "Casa Los pinos 3.jpg", "Casa Los pinos 4.jpg", "Casa Los pinos 5.jpg", "Casa Los pinos 6.jpg"] },
         { id: 9, titulo: "Lote 83", ubicacion: "Arenas del Sur, Mar del Plata", anio: "2021", foto: "Lote 83 1.jpg", galeria: ["Lote 83 1.jpg", "Lote 83 2.jpg", "Lote 83 3.jpg", "Lote 83 4.jpg", "Lote 83 5.jpg"] },
-        { id: 10, titulo: "Casa Los Álamos", ubicacion: "La Vega, San Martín de los Andes", anio: "2023", foto: "Casa Los alamos 1.jpg", galeria: ["Casa Los alamos 1.jpg", "Casa Los alamos 2.jpg", "Casa Los alamos 3.jpg", "Casa Los alamos 4.jpg", "Casa Los alamos 5.jpg", "Casa Los alamos 6.jpg", "Casa Los alamos 7.jpg", "Casa Los alamos 8.jpg", "Casa Los alamos 9.jpg"] },
+        { id: 10, titulo: "Casa Los Álamos", ubicacion: "Mar del Plata", anio: "2023", foto: "Casa Los alamos 1.jpg", galeria: ["Casa Los alamos 1.jpg", "Casa Los alamos 2.jpg", "Casa Los alamos 3.jpg", "Casa Los alamos 4.jpg", "Casa Los alamos 5.jpg", "Casa Los alamos 6.jpg", "Casa Los alamos 7.jpg", "Casa Los alamos 8.jpg", "Casa Los alamos 9.jpg"] },
         { id: 11, titulo: "Casa Playa Los Lobos", ubicacion: "Playa Los Lobos, Mar del Plata", anio: "2022", foto: "Casa Playa Los Lobos 1.jpg", galeria: ["Casa Playa Los Lobos 1.jpg", "Casa Playa Los Lobos 2.jpg", "Casa Playa Los Lobos 3.jpg", "Casa Playa Los Lobos 4.jpg", "Casa Playa Los Lobos 5.jpg", "Casa Playa Los Lobos 6.jpg", "Casa Playa Los Lobos 7.jpg", "Casa Playa Los Lobos 8.jpg", "Casa Playa Los Lobos 9.jpg", "Casa Playa Los Lobos 10.jpg"] },
       ]
     },
@@ -389,33 +389,35 @@ export default function App() {
       </main>
 
           {/* 5. VISTA DETALLE PROYECTO (MODAL) */}
-{proyectoActivo && (
-  <div className="fixed inset-0 z-[120] bg-white overflow-y-auto pt-20 animate-in fade-in duration-300">
-    <div className="max-w-4xl mx-auto w-full px-4 py-12 text-center">
-      <h1 className="text-xl md:text-2xl font-bold tracking-tight mb-2 uppercase" style={{ color: brandBrown }}>{proyectoActivo.titulo}</h1>
-      <div className="w-10 h-[2px] mx-auto mb-3" style={{ backgroundColor: brandBrown }}></div>
-      <p className="text-stone-500 uppercase tracking-widest text-[10px] md:text-xs font-light italic">{proyectoActivo.ubicacion} &nbsp;|&nbsp; {proyectoActivo.anio}</p>
-    </div>
-
-    {/* CONTENEDOR DE GALERÍA */}
-    <div className="max-w-7xl mx-auto w-full px-4 md:px-8 pb-24">
-      <div className="flex flex-col gap-8"> {/* Cambiado a flex-col para un recorrido lineal y ordenado */}
-        {proyectoActivo.galeria.map((img, idx) => (
-          <div 
-            key={`${proyectoActivo.id}-${idx}`} 
-            className="w-full bg-stone-50 overflow-hidden shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-700"
-            style={{ transitionDelay: `${idx * 100}ms` }} // Efecto de cascada
-          >
-            <img 
-              src={img} 
-              alt={`${proyectoActivo.titulo} - Imagen ${idx + 1}`} 
-              className="w-full h-auto object-contain block mx-auto shadow-lg"
-              loading="lazy"
-            />
+          {proyectoActivo && (
+          <div className="fixed inset-0 z-[120] bg-stone-50 overflow-y-auto pt-20 animate-in fade-in duration-300">
+          <div className="max-w-4xl mx-auto w-full px-4 py-12 text-center">
+            <h1 className="text-xl md:text-2xl font-bold tracking-tight mb-2 uppercase" style={{ color: brandBrown }}>{proyectoActivo.titulo}</h1>
+            <div className="w-10 h-[2px] mx-auto mb-3" style={{ backgroundColor: brandBrown }}></div>
+            <p className="text-stone-500 uppercase tracking-widest text-[10px] md:text-xs font-light italic">{proyectoActivo.ubicacion} &nbsp;|&nbsp; {proyectoActivo.anio}</p>
           </div>
-        ))}
-      </div>
-    </div>
+
+          {/* CONTENEDOR DE GALERÍA */}
+          <div className="w-full pb-24">
+            <div className="flex flex-col gap-12 md:gap-16 items-center"> 
+              {proyectoActivo.galeria.map((img, idx) => (
+                <div 
+                  key={`${proyectoActivo.id}-${idx}`} 
+                  // Aseguramos que el fondo sea gris y no tenga padding
+                  className="w-full flex justify-center bg-stone-50 p-0 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700"
+                  style={{ transitionDelay: `${idx * 100}ms` }}
+                >
+                  <img 
+                    src={img} 
+                    alt={`${proyectoActivo.titulo} - Imagen ${idx + 1}`} 
+                    // EL CAMBIO ESTÁ ACÁ: Eliminamos cualquier borde, ancho total y padding
+                    className="w-auto max-w-full max-h-[85vh] object-contain block m-0 p-0"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
     {/* BOTÓN VOLVER FLOTANTE (Opcional para mejorar UX) */}
     <button 
