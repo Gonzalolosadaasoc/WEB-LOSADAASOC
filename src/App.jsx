@@ -44,7 +44,7 @@ export default function App() {
     direccion: "Bernardo de Irigoyen 3918, Mar del Plata, Buenos Aires",
     telefono: "+54 9 223 535-3121",
     email: "gonzalo@losadaasoc.com",
-    instagram: "https://www.instagram.com/santiagolosadaasociados/" 
+    instagram: "https://www.instagram.com/losadaasociados/" 
   };
 
   const equipo = [
