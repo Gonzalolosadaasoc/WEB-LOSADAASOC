@@ -53,28 +53,28 @@ export default function App() {
       nombre: "Arq. Santiago Losada", 
       rol: "Socio Fundador", 
       descripcion: "Arquitecto recibido de la UNMdP en el 2004.\nMatricula CAPBA N°23987", 
-      foto: "foto_socio_1.jpg" 
+      foto: "SANTIAGO.jpg" 
     },
     { 
       id: 2, 
       nombre: "Arq. Laura Fassinato", 
       rol: "Asociada", 
       descripcion: "Arquitecta recibida de la UNMdP en el 2015.\nMatricula CAPBA N°28859.\nPosgrado en arquitectura sustentable - UBA.\nEtiquetadora certificada bajo programa nacional de etiquetado de viviendas.\nEspecializacion en arquitectura y habitat sustentable - UNLP.", 
-      foto: "LAURA.JPEG" 
+      foto: "LAURA.jpg"
     },
     { 
       id: 3, 
       nombre: "Arq. Geronimo Sobrino", 
       rol: "Asociado", 
       descripcion: "Arquitecto recibido de la UNMdP en el 2021.\nMatricula CAPBA N°34988.", 
-      foto: "foto_jefe.jpg" 
+      foto: "GERONIMO.jpg" 
     },
     { 
       id: 4, 
       nombre: "Arq. Gonzalo Gasparini", 
       rol: "Asociado", 
       descripcion: "Arquitecto recibido de la UNMdP en el 2021.\nMatricula CAPBA N°34760.", 
-      foto: "Gonzalo.JPEG" 
+      foto: "GONZALO.jpg" 
     }
   ];
 
